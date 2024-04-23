@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Repository
-public interface UserRepo extends JpaRepository<User, Integer> {
+public interface BadriUserRepo extends JpaRepository<User, Integer> {
     @Query(value = "SELECT u FROM User u WHERE u.userId = ?1")
     User findByUserId(int userId);
 

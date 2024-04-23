@@ -8,10 +8,10 @@ import com.example.springapp.model.Person;
 import com.example.springapp.repository.PersonRepo;
 
 @Service
-public class PersonService {
+public class BadriPersonService {
     public PersonRepo personRepo;
 
-    public PersonService(PersonRepo personRepo) {
+    public BadriPersonService(PersonRepo personRepo) {
         this.personRepo = personRepo;
     }
 

@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class Village {
+public class BadriVillage {
     @Id
     private int villageId;
     private String villageName;
@@ -13,8 +13,8 @@ public class Village {
     private int villagePopulation;
     private int numOfSchools;
 
-    public Village(){}
-    public Village(int villageId, String villageName, int numOfMen, int numOfWomen, int villagePopulation,
+    public BadriVillage(){}
+    public BadriVillage(int villageId, String villageName, int numOfMen, int numOfWomen, int villagePopulation,
             int numOfSchools) {
         this.villageId = villageId;
         this.villageName = villageName;

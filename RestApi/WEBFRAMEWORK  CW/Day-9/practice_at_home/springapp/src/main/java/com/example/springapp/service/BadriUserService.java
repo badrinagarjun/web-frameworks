@@ -7,7 +7,7 @@ import com.example.springapp.model.User;
 import com.example.springapp.repository.UserRepo;
 
 @Service
-public class UserService {
+public class BadriUserService {
    @Autowired
    private UserRepo userRepo;
    

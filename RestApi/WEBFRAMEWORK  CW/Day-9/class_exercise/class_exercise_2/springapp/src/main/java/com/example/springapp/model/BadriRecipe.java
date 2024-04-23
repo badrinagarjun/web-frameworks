@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class Recipe {
+public class BadriRecipe {
     @Id
     private int recipeId;
     private String title;
@@ -12,7 +12,7 @@ public class Recipe {
     private String instruction;
     private String recipeName;
    
-    public Recipe(int recipeId, String title, int ingredients, String instruction, String recipeName) {
+    public BadriRecipe(int recipeId, String title, int ingredients, String instruction, String recipeName) {
         this.recipeId = recipeId;
         this.title = title;
         this.ingredients = ingredients;
@@ -20,7 +20,7 @@ public class Recipe {
         this.recipeName = recipeName;
     }
 
-    public Recipe(){}
+    public BadriRecipe(){}
 
     public int getRecipeId() {
         return recipeId;

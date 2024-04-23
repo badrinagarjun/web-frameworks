@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
-import com.example.springapp.model.Recipe;
-import com.example.springapp.service.RecipeService;
+import com.example.springapp.model.BadriRecipe;
+import com.example.springapp.service.BadriRecipeService;
 
 @RestController
-public class RecipeController {
+public class BadriRecipeController {
     @Autowired
-    private RecipeService ser;
+    private BadriRecipeService ser;
 
     @PostMapping("/api/recipe")
-    public ResponseEntity<Recipe> post(@RequestBody Recipe person) {
+    public ResponseEntity<BadriRecipe> post(@RequestBody BadriRecipe person) {
         if (ser.post(person)) {
             return new ResponseEntity<>(person, HttpStatus.CREATED);
         } else {
@@ -28,8 +28,8 @@ public class RecipeController {
     }
 
     @GetMapping("/api/recipe/byname")
-    public ResponseEntity<List<Recipe>> getAllbyFiltering(@RequestParam("recipeName") String recipeName) {
-        List<Recipe> li = ser.filter(recipeName);
+    public ResponseEntity<List<BadriRecipe>> getAllbyFiltering(@RequestParam("recipeName") String recipeName) {
+        List<BadriRecipe> li = ser.filter(recipeName);
         if (li.size() > 0) {
             return new ResponseEntity<>(li, HttpStatus.OK);
         } else {
@@ -38,8 +38,8 @@ public class RecipeController {
     }
 
     @GetMapping("/api/recipe/{recipeId}")
-    public ResponseEntity<Recipe> getbyrecipeId(@PathVariable("recipeId") int recipeId) {
-        Recipe li = ser.getByid(recipeId);
+    public ResponseEntity<BadriRecipe> getbyrecipeId(@PathVariable("recipeId") int recipeId) {
+        BadriRecipe li = ser.getByid(recipeId);
         if (li!=null) {
             return new ResponseEntity<>(li, HttpStatus.OK);
         } else {

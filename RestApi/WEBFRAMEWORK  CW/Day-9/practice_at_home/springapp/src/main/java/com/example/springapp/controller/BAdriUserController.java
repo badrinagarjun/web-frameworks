@@ -10,22 +10,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.springapp.model.User;
-import com.example.springapp.service.UserService;
+import com.example.springapp.model.BadriUser;
+import com.example.springapp.service.BadriUserService;
 
 @RestController
 @RequestMapping("/api")
-public class UserController {
+public class BAdriUserController {
     
     @Autowired
-    private UserService userService;
+    private BadriUserService userService;
 
     @PostMapping("/user")
-    public ResponseEntity<User> post(@RequestBody User user)
+    public ResponseEntity<BadriUser> post(@RequestBody BadriUser user)
     {
         if(userService.postUser(user))
         {
-            return new ResponseEntity<User>(user, HttpStatus.CREATED);
+            return new ResponseEntity<BadriUser>(user, HttpStatus.CREATED);
         }
         else{
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -33,28 +33,28 @@ public class UserController {
     }
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<User> getById(@PathVariable int userId)
+    public ResponseEntity<BadriUser> getById(@PathVariable int userId)
     {
-        User user = userService.getById(userId);
+        BadriUser user = userService.getById(userId);
         if(user == null)
         {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         else{
-            return new ResponseEntity<User>(user, HttpStatus.OK);
+            return new ResponseEntity<BadriUser>(user, HttpStatus.OK);
         }
     }
 
     @GetMapping("/user/byName/{userName}")
-    public ResponseEntity<User> getByUserName(@PathVariable String userName)
+    public ResponseEntity<BadriUser> getByUserName(@PathVariable String userName)
     {
-        User user = userService.getByUserName(userName);
+        BadriUser user = userService.getByUserName(userName);
         if(user == null)
         {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         else{
-            return new ResponseEntity<User>(user, HttpStatus.OK);
+            return new ResponseEntity<BadriUser>(user, HttpStatus.OK);
         }
     }
 }

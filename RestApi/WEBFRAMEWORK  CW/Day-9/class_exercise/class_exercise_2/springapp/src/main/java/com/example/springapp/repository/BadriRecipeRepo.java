@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Repository
-public interface RecipeRepo extends JpaRepository<Recipe,Integer>{
+public interface BadriRecipeRepo extends JpaRepository<Recipe,Integer>{
 
     @Query("select r from Recipe r where recipeName=?1")
     List<Recipe> findByProduct(String name);

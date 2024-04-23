@@ -9,7 +9,7 @@ import com.example.springapp.model.Recipe;
 import com.example.springapp.repository.RecipeRepo;
 
 @Service
-public class RecipeService {
+public class BadriRecipeService {
     @Autowired
     private RecipeRepo rep;
 
