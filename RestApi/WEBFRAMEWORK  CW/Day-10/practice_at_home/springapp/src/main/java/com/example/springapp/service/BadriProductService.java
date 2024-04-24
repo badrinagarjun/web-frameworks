@@ -5,15 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.springapp.model.Product;
-import com.example.springapp.repository.ProductRepo;
+import com.example.springapp.model.BadriProduct;
+import com.example.springapp.repository.BadriProductRepo;
 
 @Service
-public class ProductService {
+public class BadriProductService {
     @Autowired
-    private ProductRepo productRepo;
+    private BadriProductRepo productRepo;
 
-    public boolean saveProduct(Product product)
+    public boolean saveProduct(BadriProduct product)
     {
         try
         {
@@ -26,18 +26,18 @@ public class ProductService {
         }
     }
     
-    public List<Product> findByCategoryList(String category)
+    public List<BadriProduct> findByCategoryList(String category)
     {
         return productRepo.findByCategoryList(category);
     }
 
-    public Product updateProduct(int productId, int quantityInStock)
+    public BadriProduct updateProduct(int productId, int quantityInStock)
     {
         productRepo.updateQuantity(productId, quantityInStock);
         return productRepo.findById(productId).orElse(null);
     }
 
-    public Product deleteProduct(int productId)
+    public BadriProduct deleteProduct(int productId)
     {
         productRepo.deleteProduct(productId);
         return productRepo.findById(productId).orElse(null);

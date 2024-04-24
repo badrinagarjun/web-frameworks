@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class Product {
+public class BadriProduct {
     @Id
     private int productId;
     private String name;
@@ -13,9 +13,9 @@ public class Product {
     private int quantityInStock;
     private String category;
     private int price;
-    public Product() {
+    public BadriProduct() {
     }
-    public Product(int productId, String name, String city, String address, int quantityInStock, String category,
+    public BadriProduct(int productId, String name, String city, String address, int quantityInStock, String category,
             int price) {
         this.productId = productId;
         this.name = name;

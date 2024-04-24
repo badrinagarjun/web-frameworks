@@ -14,28 +14,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.springapp.model.Product;
-import com.example.springapp.service.ProductService;
+import com.example.springapp.model.BadriProduct;
+import com.example.springapp.service.BadriProductService;
 
 @RestController
 @RequestMapping("/api")
-public class ProductController {
+public class BadriProductController {
 
     @Autowired
-    private ProductService productService;
+    private BadriProductService productService;
 
     @PostMapping("/product")
-    public ResponseEntity<Product> save(@RequestBody Product product) {
+    public ResponseEntity<BadriProduct> save(@RequestBody BadriProduct product) {
         if(productService.saveProduct(product))
-            return new ResponseEntity<Product>(product, HttpStatus.CREATED);
+            return new ResponseEntity<BadriProduct>(product, HttpStatus.CREATED);
         else
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @GetMapping("/product/bycategory/{category}")
-    public ResponseEntity<List<Product>> findByCategory(@PathVariable String category) {
+    public ResponseEntity<List<BadriProduct>> findByCategory(@PathVariable String category) {
         
-        List<Product> products = productService.findByCategoryList(category);
+        List<BadriProduct> products = productService.findByCategoryList(category);
         if(products.size() > 0)
             return new ResponseEntity<>(products, HttpStatus.OK);
         else
@@ -43,8 +43,8 @@ public class ProductController {
     }
 
     @PutMapping("/product/{productId}/{quantityInStock}")
-    public ResponseEntity<Product> update(@PathVariable int productId, @PathVariable int quantityInStock) {
-        Product product = productService.updateProduct(productId, quantityInStock);
+    public ResponseEntity<BadriProduct> update(@PathVariable int productId, @PathVariable int quantityInStock) {
+        BadriProduct product = productService.updateProduct(productId, quantityInStock);
         if(product != null && product.getQuantityInStock() == quantityInStock)
             return new ResponseEntity<>(product, HttpStatus.OK);
         else
@@ -53,7 +53,7 @@ public class ProductController {
 
     @DeleteMapping("/product/{productId}")
     public ResponseEntity<String> delete(@PathVariable int productId) {
-        Product product = productService.deleteProduct(productId);
+        BadriProduct product = productService.deleteProduct(productId);
         if(product == null)
             return new ResponseEntity<>("Product deteled successfully", HttpStatus.OK);
         else
